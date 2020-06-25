@@ -19,7 +19,7 @@ Using SQL Server Migration Assistant for Database Migration
 
 Form: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-migration-guide/migrate?tabs=Tools
 
-Cloud Infrastructure requirements to be created 
+Cloud Infrastructure requirements to be created - Azure Network and Infrastructure Flows
 1.	We are hosting in two Regions ( EastUS, WestUS ) and peering back to on-premise data center using ExpressRoute
 2.	Creating two VNET’s one each in Regions ( EastUS, WestUS ) 
 ~~~
@@ -49,6 +49,6 @@ In each region we are creating two VMs for webservers (to secure the application
 If I have more time, I should have also done below tasks 
 1.	To allow traffic across VNETs we can use VNT Peering 
 2.	For HA I have plans to create a Azure Load balancer in between app and web VMs, and Configure Network Traffic Manger in between Load balancers from different Regions for Geo redundancy 
-3.	Better Documentation for modules with example usage – right now only available for Azure SQL module 
-4.	Add output.tf for respective modules 
-5.	Network infrastructure diagram
+3.	Better documentation for modules with usage examples – right now I have created for Azure SQL module 
+4.	Add output.tf for respective modules output
+5.	Azure Network and Infrastructure flows diagram
