@@ -5,12 +5,12 @@ provider "azurerm" {
 }
 
 module "create_resource_group" {
-  source   = "modules/resource_group"
+  source   = "../modules/resource_group"
   location = ["westus"]
 }
 
 module "base_networking_setup" {
-  source              = "modules/networking"
+  source              = "../modules/networking"
   resource_group_name = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network     = [{
       name    = "virtual_network_westus",
@@ -58,7 +58,7 @@ module "base_networking_setup" {
 }
 
 module "nsg_association_sg_ssh_to_subnet_web" {
-  source                    = "modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_web"
@@ -66,7 +66,7 @@ module "nsg_association_sg_ssh_to_subnet_web" {
 }
 
 module "nsg_association_sg_ssh_to_subnet_app" {
-  source                    = "modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_app"
@@ -74,7 +74,7 @@ module "nsg_association_sg_ssh_to_subnet_app" {
 }
 
 module "nsg_association_sg_web_to_subnet_web" {
-  source                    = "modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_web"
@@ -82,7 +82,7 @@ module "nsg_association_sg_web_to_subnet_web" {
 }
 
 module "nsg_association_sg_app_to_subnet_app" {
-  source                    = "modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_app"
@@ -110,14 +110,14 @@ module "terraform-example-az_sql" {
 }
 
 module "app-linux-VMs" {
-    source              = "modules/linux_vm"
+    source              = "../modules/linux_vm"
     resource_group_name = "my-test-candidate-${module.create_resource_group.location}"
     teir                = "app"
     number_of_VMs       = "2"
 }
 
 module "web-linux-VMs" {
-    source              = "modules/linux_vm"
+    source              = "../modules/linux_vm"
     resource_group_name = "my-test-candidate-${module.create_resource_group.location}"
     teir                = "web"
     number_of_VMs       = "2"

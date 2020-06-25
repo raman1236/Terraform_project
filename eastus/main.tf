@@ -58,7 +58,7 @@ module "base_networking_setup" {
 }
 
 module "nsg_association_sg_ssh_to_subnet_web" {
-  source                    = "../modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_web"
@@ -66,7 +66,7 @@ module "nsg_association_sg_ssh_to_subnet_web" {
 }
 
 module "nsg_association_sg_ssh_to_subnet_app" {
-  source                    = "../modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_app"
@@ -74,7 +74,7 @@ module "nsg_association_sg_ssh_to_subnet_app" {
 }
 
 module "nsg_association_sg_web_to_subnet_web" {
-  source                    = "../modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_web"
@@ -82,7 +82,7 @@ module "nsg_association_sg_web_to_subnet_web" {
 }
 
 module "nsg_association_sg_app_to_subnet_app" {
-  source                    = "../modules/nsg"
+  source                    = "../modules/nsgs"
   resource_group_name       = "my-test-candidate-${module.create_resource_group.location}"
   virtual_network_name      = "virtual_network_eastus"
   subnet_name               = "subnet_app"
