@@ -33,7 +33,7 @@ o	Subnet for web traffic = { subnet_name    = "subnet_web", address_prefix = "10
 o	 Subnet to app traffic = { subnet_name    = "subnet_app", address_prefix = "10.2.2.0/24" }
 ~~~
 virtual_network_westus
-~~~~
+~~~
 o	Subnet for web traffic = { subnet_name    = "subnet_web", address_prefix = "10.1.1.0/24"},
 o	 Subnet to app traffic = { subnet_name    = "subnet_app", address_prefix = "10.1.2.0/24" }
 ~~~
