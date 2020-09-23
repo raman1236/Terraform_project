@@ -10,6 +10,19 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: '5f81467e-9c31-442c-8807-2613edda99a3'
+    pipeline: '1'
+    buildVersionToDownload: 'latest'
+    tags: 'example'
+    downloadType: 'single'
+    artifactName: '$(Build.BuildNumber)'
+    downloadPath: '\\CWV-WEBES40D\Drop\$(Build.DefinitionName)'
+
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
